@@ -9,7 +9,8 @@ $piratesOfCaribbean = new Movie(
 		si unisce a Jack Sparrow, un pirata vagabondo, per portare in salvo la fanciulla.', 
 	2003, 
 	['Johnny Depp', 'Orlando Bloom', 'Keira Knightley', 'Geoffrey Rush'],
-  4.5
+  4.5,
+	'img/pirates.jpg'
 );
 
 $interstellar = new Movie(
@@ -18,7 +19,8 @@ $interstellar = new Movie(
 		Il granturco è l\'unica coltivazione ancora in grado di crescere ed un gruppo di scienziati è intenzionato ad attraversare lo spazio per trovare nuovi luoghi adatti a coltivarlo.', 
 	2014, 
 	['Matthew McConaughey', 'Anne Hathaway', 'Jessica Chastain', 'Michael Caine'],
-	3.8
+	3.8,
+	'img/interstellar.jpg'
 );
 
 
@@ -28,7 +30,8 @@ $shutterIsland = new Movie(
 		L\'agente federale Teddy Daniels, affiancato dall\'ufficiale Chuck Aule, deve indagare per risolvere il mistero.', 
 	2010, 
 	['Leonardo DiCaprio', 'Andrew Laeddis', 'Mark Ruffalo', 'Ben Kingsley'],
-	3.9
+	3.9,
+	'img/shutter_island.jpg'
 );
 
 
@@ -50,34 +53,32 @@ array_push($movies, $piratesOfCaribbean, $interstellar, $shutterIsland);
 </head>
 <body>
 	<main>
-		<section id="movies">
-			<h1>Film: </h1>
-			<div class="container">
+		<section id="movies" class="container">
+			<h1>Film</h1>
 				<ul class="movies-list">
-					<?php
-					foreach($movies as $movie) { ?>
-
+					<?php foreach($movies as $movie) { ?>
+						
 						<li class="movie">
-							<h3>
-								Titolo: <span><?= $movie->title; ?></span> 
-							</h3>
-							<p>
-								Trama: <span><?= $movie->description; ?></span>
-							</p>
-							<p>
-								Anno: <span><?= $movie->year; ?></span> 
-							</p>
-							<p>
-								Attori: <span><?= implode(', ' , $movie->actors); ?></span>
-							</p>
-							<p>
-								Voto: <span><?= $movie->vote; ?></span>
-							</p>
-						</li>
+								<img src="<?= $movie->posterPath ; ?>" alt="<?= $movie->title ; ?>">
+								<h3>
+									Titolo: <span><?= $movie->title; ?></span> 
+								</h3>
+								<p>
+									Trama: <span><?= $movie->description; ?></span>
+								</p>
+								<p>
+									Anno: <span><?= $movie->year; ?></span> 
+								</p>
+								<p>
+									Attori: <span><?= implode(', ' , $movie->actors); ?></span>
+								</p>
+								<p>
+									Voto: <span><?= $movie->vote; ?></span>
+								</p>
+							</li>
 
 					<?php } ; ?>
 				</ul>
-			</div>
 		</section>
 	</main>
 </body>

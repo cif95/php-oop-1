@@ -10,18 +10,19 @@ body {
 	color: rgba(255, 255, 255, 0.774);
 }
 
-
-section#movies {
-	padding: 5rem 2rem;
-}
-
-section#movies div.container {
-	width: 80%;
+.container {
+	width: 90%;
 	margin: 0 auto;
 }
 
-div.container ul.movies-list {
-	gap: 2rem;
+
+section#movies {
+	padding: 3rem 2rem;
+}
+
+section#movies ul.movies-list {
+	gap: 0.5rem;
+	padding-top: 2rem;
 	display: flex;
 	list-style: none;
 	align-items: flex-start;
@@ -30,10 +31,16 @@ div.container ul.movies-list {
 
 ul.movies-list li.movie {
 	padding: 3rem;
-	min-height: 550px;
-	border-radius: 20px;
+	min-height: 1200px;
+	border-radius: 10px;
 	flex-basis: calc( 100% / 3 );
 	background-color: rgba(102, 102, 102, 0.226);
+}
+
+li.movie img {
+	width: 100%;
+	height: 650px;
+	object-fit: cover;
 }
 
 li.movie h3,

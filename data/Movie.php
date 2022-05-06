@@ -8,23 +8,26 @@ class Movie {
 	public $year;
 	public $actors;
 	public $vote;
+	public $posterPath;
 
 
 	/**
-	*  Build a new Movie class istance with the given arguments
+	*  Builds a new Movie class istance with the given arguments
 	*
 	* @param [string] $title  Movie title
 	* @param [string] $description Movie description
 	*	@param [int] $year Release year of the movie
 	* @param [array] $actors List of all movie actors
-	* @param [float|int] $vote vote of Movie, it must be >= 0 and <= 5
+	* @param [float|int] $vote Optional: vote of Movie
+	* @param [string] $posterPath Optional: path of Movie poster
 	*/
-	function __construct( $title, $description, $year, $actors, $vote = null) {
+	function __construct( $title, $description, $year, $actors, $vote = null, $posterPath = null) {
 		$this->title = $title;
 		$this->description = $description;
 		$this->year = $year;
 		$this->actors = $actors;
 		$this->vote = $vote;
+		$this->posterPath = $posterPath;
 	}
 
 	/* Function that sets a Movie istance vote, it must be >= 0 and <= 5 */
@@ -34,9 +37,9 @@ class Movie {
 		}
 	}
 
-	/* Function that sets a Movie istance description, it must a string with with lenght < 1000 */
-	public function setDescription($text) {
-		if ( is_string($text) && strlen($text) < 1000 ) {
+	/* Function that sets a Movie istance description, it must a string with with lenght < 500 */
+	public function setDescription($description) {
+		if ( is_string($description) && strlen($description) < 500 ) {
 			$this->description = $text;
 		}
 	}
@@ -54,6 +57,11 @@ class Movie {
 	/* Function that returns a Movie istance description */
 	public function getDescription() {
 		return $this->description;
+	}
+
+	/* Function that returns a Movie istance description */
+	public function getPoster() {
+		return $this->posterPath;
 	}
 
 };
