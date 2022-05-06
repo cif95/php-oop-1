@@ -1,0 +1,50 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: sans-serif;
+	background-color: rgb(5, 24, 65);
+	color: rgba(255, 255, 255, 0.774);
+}
+
+
+section#movies {
+	padding: 5rem 2rem;
+}
+
+section#movies div.container {
+	width: 80%;
+	margin: 0 auto;
+}
+
+div.container ul.movies-list {
+	gap: 2rem;
+	display: flex;
+	list-style: none;
+	align-items: flex-start;
+	justify-content: center;
+}
+
+ul.movies-list li.movie {
+	padding: 3rem;
+	min-height: 550px;
+	border-radius: 20px;
+	flex-basis: calc( 100% / 3 );
+	background-color: rgba(102, 102, 102, 0.226);
+}
+
+li.movie h3,
+li.movie p {
+	gap: 1rem;
+	display: flex;
+	padding: 1rem 0;
+}
+
+
+li.movie span {
+	line-height: 1.5rem;
+	color: white;
+}
