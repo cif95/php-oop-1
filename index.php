@@ -1,15 +1,13 @@
 <?php 
-
 class Movie {
 
 	public $title;
 	public $description;
 	public $year;
 	public $actors;
-	public $language;
 	public $vote;
 
-	function __construct( $title, $description, $year, $actors, $language, $vote ) {
+	function __construct( $title, $description, $year, $actors, $vote ) {
 		$this->title = $title;
 		$this->description = $description;
 		$this->year = $year;
@@ -18,17 +16,33 @@ class Movie {
 	}
 
 	public function setVote($vote) {
-		$this->vote = $vote;
+		if ( is_numeric($vote) && $vote >= 0 && $vote <= 5 ) {
+			$this->vote = $vote;
+		}
+	}
+
+	public function setDescription($text) {
+		if ( ctype_alpha($text) && strlen($text) < 1000 ) {
+			$this->description = $text;
+		}
 	}
 
 	public function getYear() {
-		return $this->year ;
+		return $this->year;
+	}
+
+	public function getActors() {
+		return $this->actors;
+	}
+
+	public function getDescription() {
+		return $this->description;
 	}
 
 };
 
-$firstMovie = new Movie('I pirati dei Caraibi: La maledizione della prima luna', 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', 2003, 'Johnny Depp, Orlando Bloom, Keira Knightley, Geoffrey Rush',  4,5);
-$secondMovie = new Movie('Interstellar', 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', 2014, 'Matthew McConaughey, Anne Hathaway, Jessica Chastain, Michael Caine', 3,8);
+$pirateMovie = new Movie('I pirati dei Caraibi: La maledizione della prima luna', 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', 2003, ['Johnny Depp', 'Orlando Bloom', 'Keira Knightley', 'Geoffrey Rush'],  4,5);
+$interstellarMovie = new Movie('Interstellar', 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', 2014, ['Matthew McConaughey', 'Anne Hathaway', 'Jessica Chastain', 'Michael Caine'], 3,8);
 
 ?>
 
@@ -44,10 +58,9 @@ $secondMovie = new Movie('Interstellar', 'Lorem ipsum dolor sit amet consectetur
 <body>
 	<main>
 		<?php 
-			var_dump($firstMovie);
-			var_dump($secondMovie);
-		; ?>
-		
+			var_dump($pirateMovie);
+			var_dump($interstellarMovie);
+			?>
 	</main>
 </body>
 </html>
